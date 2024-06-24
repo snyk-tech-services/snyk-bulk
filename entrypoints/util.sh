@@ -4,6 +4,10 @@
 # shellcheck source=cmdline.sh
 source "${SOURCEDIR}/cmdline.sh"
 
+declare -gx SNYK_INTEGRATION_NAME SNYK_INTEGRATION_VERSION
+SNYK_INTEGRATION_NAME="cse-snyk-bulk"
+SNYK_INTEGRATION_VERSION=$(cat "${SOURCEDIR}/version_info | head -n1")
+
 set_debug(){
   if [[ "${SNYK_BULK_DEBUG}" == 1 ]]; then
     set -x
